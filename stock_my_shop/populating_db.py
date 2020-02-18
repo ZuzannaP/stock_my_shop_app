@@ -1,0 +1,28 @@
+from my_shop.models import Category, Product
+
+o = Category.objects.create(category_name="Dairy", slug="dairy")
+o2 = Category.objects.create(category_name="Meet", slug="meet")
+o3 = Category.objects.create(category_name="Sweets", slug="sweets")
+o4 = Category.objects.create(category_name="Household cleaning stuff", slug="household-cleaning-stuff")
+o5 = Category.objects.create(category_name="Fish", slug="fish")
+o6 = Category.objects.create(category_name="Bakery", slug="bakery")
+
+p = Product.objects.create(name="Milk", description="lala", price=13.33, vat=0.23, stock=344)
+p.categories.add(o)
+p2 = Product.objects.create(name="Cod", description="stinky food", price=34.33, vat=0.08, stock=12)
+p3 = Product.objects.create(name="Chicken breast", description="ideal for tika masala", price=6.54, vat=0.05, stock=55)
+p4 = Product.objects.create(name="Sponges", description="yellow and fluffy", price=0.99, vat=0.23, stock=456)
+p5 = Product.objects.create(name="Chocolate", description="to make you even fatter", price=1.19, vat=0.08, stock=343)
+p6 = Product.objects.create(name="Gummie bears", description="yummie", price=4.00, vat=0.05, stock=120)
+p7 = Product.objects.create(name="Bunions", description="such a nice smell", price=0.50, vat=0.05, stock=70)
+p8 = Product.objects.create(name="Soap", description="lavenda", price=5.37, vat=0.23, stock=44)
+p9 = Product.objects.create(name="Eggs", description="XXL", price=23.33, vat=0.23, stock=12)
+p2.categories.add(o5)
+p3.categories.add(o2)
+p4.categories.add(o4)
+p5.categories.add(o3)
+p6.categories.add(o3)
+p7.categories.add(o6)
+p8.categories.add(o4)
+p9.categories.add(o)
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Products</h1>
+    <div class="container-fluid col-md-8">
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item">
+                    <a href="/product/{{ product.pk }}" class="myListing">{{ product.name }}</a>
+                    {% if perms.my_shop.delete_product %}
+                     <a href="/delete_product/{{ product.pk  }}" class=" btn btn-outline-dark float-right myListing">Delete</a>
+               {% endif %}
+                    {% if perms.my_shop.change_product %}
+               <a href="/edit_product/{{ product.pk  }}" class="btn btn-outline-dark float-right myListing">Edit</a>
+                  {% endif %}
+                </li>
+            {% endfor %}
+            {% if perms.my_shop.add_product %}
+        <li class="list-group-item">
+          <a href="/add_product/" class="btn btn-dark addButton">Add product</a>
+        </li>
+             {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+

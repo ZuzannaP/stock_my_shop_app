@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if matching_categories %}
+        <h1>Categories</h1>
+        <div class="container-fluid col-md-8">
+            <ul class="list-group">
+                {% for category in matching_categories %}
+                    <li class="list-group-item">
+                        <span class="badge badge-dark badge-pill">{{ category.product_set.all.count }}</span>
+                        <a href="/category/{{ category.slug }}" class="myListing">{{ category }}</a>
+                         <a href="/delete_category/{{ category.slug }}" class=" btn btn-outline-dark float-right myListing">Delete</a>
+                   <a href="/edit_category/{{ category.slug }}" class="btn btn-outline-dark float-right myListing">Edit</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if matching_products %}
+        <h1>Products</h1>
+        <div class="container-fluid col-md-8">
+            <ul class="list-group">
+                {% for product in matching_products %}
+                    <li class="list-group-item">
+                        <a href="/product/{{ product.pk }}" class="myListing">{{ product.name }}</a>
+                        {% if perms.my_shop.delete_product %}
+                            <a href="/delete_product/{{ product.pk  }}" class=" btn btn-outline-dark float-right myListing">Delete</a>
+                        {% endif %}
+                        {% if perms.my_shop.change_product %}
+                            <a href="/edit_product/{{ product.pk  }}" class="btn btn-outline-dark float-right myListing">Edit</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if not matching_categories and not matching_products %}
+        There is no such product nor category.
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Categories</h1>
+    <div class="container-fluid col-md-8">
+        <ul class="list-group">
+            {% for category in categories %}
+                <li class="list-group-item">
+                    <a href="/category/{{ category.slug }}" class="myListing">{{ category }}</a>
+                    <span class="badge badge-dark badge-pill">{{ category.product_set.all.count }}</span>
+                    {% if perms.my_shop.delete_category %}
+                     <a href="/delete_category/{{ category.slug }}" class=" btn btn-outline-dark float-right myListing">Delete</a>
+                    {% endif %}
+                    {% if perms.my_shop.change_category %}
+               <a href="/edit_category/{{ category.slug }}" class="btn btn-outline-dark float-right myListing">Edit</a>
+                {% endif %}
+                </li>
+            {% endfor %}
+        {% if perms.my_shop.add_category %}
+        <li class="list-group-item">
+          <a href="/add_category/" class="btn btn-dark addButton">Add category</a>
+        </li>
+           {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+
