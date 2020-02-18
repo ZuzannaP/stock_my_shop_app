@@ -20,7 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4+$g3-4rsm00uf=#d)%pz##ihk#64oa3k%xpw70uc$7a9e6gp^'
+try:
+    from .local_settings import SECRET_KEY
+except ModuleNotFoundError:
+    print("Brak konfiguracji bazy danych w pliku local_settings.py!")
+    print("Uzupełnij dane i spróbuj ponownie!")
+    exit(0)
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,7 +87,7 @@ WSGI_APPLICATION = 'Praca_domowa.wsgi.application'
 
 
 try:
-    from Praca_domowa.local_settings import DATABASES
+    from .local_settings import DATABASES
 except ModuleNotFoundError:
     print("Brak konfiguracji bazy danych w pliku local_settings.py!")
     print("Uzupełnij dane i spróbuj ponownie!")
