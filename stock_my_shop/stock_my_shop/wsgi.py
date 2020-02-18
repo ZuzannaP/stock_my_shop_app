@@ -1,5 +1,5 @@
 """
-WSGI config for Praca_domowa project.
+WSGI config for stock_my_shop project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Praca_domowa.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'stock_my_shop.settings')
 
 application = get_wsgi_application()
