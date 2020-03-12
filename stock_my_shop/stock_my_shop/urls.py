@@ -22,7 +22,7 @@ from my_shop.views import homepage, CategoriesView, ProductsView, OneCategory, O
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('manager/', admin.site.urls),
     path("", homepage, name="homepage"),
     path("categories/", CategoriesView.as_view(), name="categories"),
     path("category/<slug:slug>/", OneCategory.as_view(), name="one_category"),

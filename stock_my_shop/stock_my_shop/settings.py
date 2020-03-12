@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try:
-    from .local_settings import SECRET_KEY
+    from .local_settings import SECRET_KEY  # noqa
 except ModuleNotFoundError:
     print("Database not configured in file local_settings.py!")
     print("Fill out this data and try again!")
@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'stock_my_shop.wsgi.application'
 
 
 try:
-    from .local_settings import DATABASES
+    from .local_settings import DATABASES # noqa
 except ModuleNotFoundError:
     print("Database not configured in file local_settings.py!")
     print("Fill out this data and try again!")
