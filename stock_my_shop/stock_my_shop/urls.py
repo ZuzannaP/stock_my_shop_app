@@ -37,5 +37,4 @@ urlpatterns = [
     path("search/", SearchDB.as_view(), name="search"),
     path("login/", LoginView.as_view(), name="login"),
     path("logout/", LogoutView.as_view(), name="logout")
-
 ]

@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DeleteView, UpdateView, FormView
+
 from .forms import LoginForm
 from .models import Category, Product
 
@@ -13,15 +14,13 @@ def homepage(request):
 
 
 class CategoriesView(View):
-
     def get(self, request):
         categories = Category.objects.all().order_by("category_name")
-        ctx= {"categories" : categories}
+        ctx = {"categories": categories}
         return render(request, "categories_view.html", ctx)
 
 
 class OneCategory(View):
-
     def get(self, request, slug):
         category = Category.objects.get(slug=slug)
         products = category.product_set.all().order_by("name")
@@ -33,7 +32,6 @@ class OneCategory(View):
 
 
 class ProductsView(View):
-
     def get(self, request):
         products = Product.objects.all().order_by("name")
         ctx = {"products": products}
@@ -41,10 +39,9 @@ class ProductsView(View):
 
 
 class OneProduct(View):
-
     def get(self, request, id):
         product = Product.objects.get(pk=id)
-        ctx = {"product": product,}
+        ctx = {"product": product, }
         return render(request, "one_product.html", ctx)
 
 
@@ -95,11 +92,9 @@ class ProductDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
 
 
 class SearchDB(View):
-
     def post(self, request):
         ctx = {}
         searched_word = request.POST.get("search", False)
-        print(searched_word)
         matching_products = Product.objects.filter(name__istartswith=searched_word)
         matching_categories = Category.objects.filter(category_name__istartswith=searched_word)
         ctx["matching_products"] = matching_products

@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <h1>{{ product.name }}</h1>
     <div class="container-fluid col-md-6">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Description: {{ product.description }} </li>
-        <li class="list-group-item">Price: {{ product.price }} PLN</li>
-        <li class="list-group-item">Vat: {{ product.vat }}%</li>
-        <li class="list-group-item">Nr of items in stock: {{ product.stock }}</li>
-        <li class="list-group-item"> Category:
-            {% for category in product.categories.all %}
-            | {{ category }}
-            {% empty %}
-            Product not categorized yet
-            {% endfor %}
-        </li>
-    </ul>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Description: {{ product.description }} </li>
+            <li class="list-group-item">Price: {{ product.price }} PLN</li>
+            <li class="list-group-item">Vat: {{ product.vat }}%</li>
+            <li class="list-group-item">Nr of items in stock: {{ product.stock }}</li>
+            <li class="list-group-item"> Category:
+                {% for category in product.categories.all %}
+                    | {{ category }}
+                    {% empty %}
+                    Product not categorized yet
+                {% endfor %}
+            </li>
+        </ul>
     </div>
+
 {% endblock %}
 

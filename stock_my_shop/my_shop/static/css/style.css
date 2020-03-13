@@ -1,6 +1,6 @@
-/*NAVBAR*/
+/* NAVBAR */
 
-.navbar{
+.navbar {
     background-color: #183024 !important;
     border-radius: 0;
     font-size: larger;
@@ -16,24 +16,24 @@
     color: #a1d24f;
 }
 
-#navbarDropdown{
+#navbarDropdown {
     margin-left: 50px;
 }
 
-#navbarNavAltMarkup > div > div > a:nth-child(2):active{
-    background-color:  #183024 ;
+#navbarNavAltMarkup > div > div > a:nth-child(2):active {
+    background-color: #183024;
 }
 
 .nav-item {
     text-align: right;
 }
 
-a.nav-item.nav-link{
+a.nav-item.nav-link {
     margin-right: 15px;
 
 }
 
-/*BODY*/
+/* BODY */
 
 h1 {
     color: #183024;
@@ -43,31 +43,31 @@ h1 {
     margin: 0;
 }
 
-body{
+body {
     background: rgba(60, 103, 51, 0.6);
     font-family: 'Public Sans', sans-serif;
 
 }
 
-.container-fluid{
+.container-fluid {
     padding: 0 40px 0 40px;
     text-align: center;
 }
 
-.myListing{
+.myListing {
     color: #183024;
     font-size: large;
 }
 
-.addButton{
+.addButton {
     color: white;
 }
 
-.myListing:hover{
+.myListing:hover {
     color: #345b2d;
 }
 
-li.list-group-item{
-      background-color: rgba(52, 91, 45, 0.61) !important;
+li.list-group-item {
+    background-color: rgba(52, 91, 45, 0.61) !important;
 }
 

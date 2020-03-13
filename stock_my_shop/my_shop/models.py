@@ -13,7 +13,7 @@ class Product(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
     price = models.FloatField()
-    vat = models.FloatField(choices=[(0.23, "0.23"), (0.08, "0.08"), (0.05, "0.05"), (0,"0")])
+    vat = models.FloatField(choices=[(0.23, "0.23"), (0.08, "0.08"), (0.05, "0.05"), (0, "0")])
     stock = models.IntegerField()
     categories = models.ManyToManyField(Category)
 

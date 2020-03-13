@@ -23,10 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 try:
     from .local_settings import SECRET_KEY  # noqa
 except ModuleNotFoundError:
-    print("Database not configured in file local_settings.py!")
-    print("Fill out this data and try again!")
+    print("Database not configured in file local_settings.py! Fill out this data and try again!")
     exit(0)
-
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -65,8 +63,7 @@ ROOT_URLCONF = 'stock_my_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,8 +86,7 @@ WSGI_APPLICATION = 'stock_my_shop.wsgi.application'
 try:
     from .local_settings import DATABASES # noqa
 except ModuleNotFoundError:
-    print("Database not configured in file local_settings.py!")
-    print("Fill out this data and try again!")
+    print("Database not configured in file local_settings.py! Fill out this data and try again!")
     exit(0)
 
 # Password validation
@@ -131,4 +127,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = '/login'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'

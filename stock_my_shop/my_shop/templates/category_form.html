@@ -3,13 +3,15 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
     <h1>Adding new category</h1>
     <div class="container-fluid col-md-6">
-   <form action="" method="post">
-        {% csrf_token %}
-        {{ form | crispy }}
-       <button type="submit" class="btn btn-dark addButton">Save</button>
-    </form>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-dark addButton">Save</button>
+        </form>
     </div>
+
 {% endblock %}
 
