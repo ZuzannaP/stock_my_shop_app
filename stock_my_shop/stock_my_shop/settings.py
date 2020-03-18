@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+import logging
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -19,11 +21,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+}
+
+logger = logging.getLogger(__name__)
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
+
 try:
     from .local_settings import SECRET_KEY  # noqa
 except ModuleNotFoundError:
-    print("Database not configured in file local_settings.py! Fill out this data and try again!")
+    logging.error("Database not configured in file local_settings.py! Fill out this data and try again!")
     exit(0)
 
 
@@ -86,7 +106,7 @@ WSGI_APPLICATION = 'stock_my_shop.wsgi.application'
 try:
     from .local_settings import DATABASES # noqa
 except ModuleNotFoundError:
-    print("Database not configured in file local_settings.py! Fill out this data and try again!")
+    logging.error("Database not configured in file local_settings.py! Fill out this data and try again!")
     exit(0)
 
 # Password validation
